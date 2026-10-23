@@ -1,36 +1,321 @@
+
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#075985"><title>八丈町アプリ</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#075985">
+<title>八丈町アプリ</title>
 <style>
-:root{--blue:#075985;--blue2:#0284c7;--ink:#17212b;--muted:#64748b;--line:#dbe4ec;--bg:#f3f7fa;--card:#fff;--red:#b91c1c}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);padding-bottom:78px}header{background:linear-gradient(135deg,#075985,#0e7490);color:white;padding:20px 17px 17px;border-radius:0 0 22px 22px}header .eyebrow{font-size:12px;opacity:.85}header h1{font-size:25px;margin:5px 0}header p{margin:0;font-size:13px;opacity:.9}.wrap{padding:15px;max-width:680px;margin:auto}.official{display:flex;align-items:center;gap:12px;background:white;color:var(--blue);border-radius:14px;padding:15px;text-decoration:none;box-shadow:0 2px 10px #0f172a0b;margin-top:-2px}.official .symbol{font-size:27px}.official strong{display:block}.official small{color:var(--muted)}h2{font-size:17px;margin:21px 0 10px}.alert{display:block;background:#fff;border:1px solid #fecaca;border-left:5px solid var(--red);border-radius:12px;padding:13px;text-decoration:none;color:var(--ink)}.alert strong{color:var(--red)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 12px;text-decoration:none;color:var(--ink);min-height:106px;display:flex;flex-direction:column;gap:7px}.tile .ico{font-size:25px}.tile strong{font-size:14px}.tile small{font-size:12px;color:var(--muted);line-height:1.45}.section{background:white;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px}.news{display:block;padding:11px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}.news:last-child{border:0}.tag{font-size:11px;background:#e0f2fe;color:#075985;border-radius:99px;padding:3px 8px;margin-right:6px}.muted{font-size:12px;color:var(--muted);line-height:1.6}.select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:white;font:inherit;margin:7px 0}.btn{display:block;text-align:center;padding:12px;border-radius:10px;background:var(--blue);color:white;text-decoration:none;font-weight:600;margin-top:8px}.btn.light{background:#e0f2fe;color:var(--blue)}.page{display:none}.page.active{display:block}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:7px 4px max(7px,env(safe-area-inset-bottom));z-index:10}.bottom button{border:0;background:none;color:var(--muted);font:inherit;font-size:11px;padding:5px 0}.bottom button span{display:block;font-size:21px;margin-bottom:2px}.bottom button.active{color:var(--blue);font-weight:700}.notice{background:#fff7ed;border:1px solid #fed7aa;padding:10px;border-radius:10px;font-size:12px;line-height:1.6;margin-top:12px}
-</style></head>
+:root {
+  --blue:#075985;
+  --blue2:#0284c7;
+  --ink:#17212b;
+  --muted:#64748b;
+  --line:#dbe4ec;
+  --bg:#f3f7fa;
+  --red:#b91c1c;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  padding-bottom:78px;
+}
+header {
+  background:linear-gradient(135deg,#075985,#0e7490);
+  color:white;
+  padding:20px 17px 17px;
+  border-radius:0 0 22px 22px;
+}
+header .eyebrow { font-size:12px; opacity:.85; }
+header h1 { font-size:25px; margin:5px 0; }
+header p { margin:0; font-size:13px; opacity:.9; }
+.wrap { padding:15px; max-width:680px; margin:auto; }
+.official {
+  display:flex; align-items:center; gap:12px;
+  background:white; color:var(--blue);
+  border-radius:14px; padding:15px;
+  text-decoration:none; margin-top:-2px;
+}
+.official .symbol { font-size:27px; }
+.official strong { display:block; }
+.official small { color:var(--muted); }
+h2 { font-size:17px; margin:21px 0 10px; }
+.alert {
+  display:block; background:#fff;
+  border:1px solid #fecaca; border-left:5px solid var(--red);
+  border-radius:12px; padding:13px;
+  text-decoration:none; color:var(--ink);
+}
+.alert strong { color:var(--red); }
+.grid {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.tile {
+  background:white; border:1px solid var(--line);
+  border-radius:14px; padding:15px 12px;
+  text-decoration:none; color:var(--ink);
+  min-height:106px; display:flex; flex-direction:column; gap:7px;
+}
+.tile .ico { font-size:25px; }
+.tile strong { font-size:14px; }
+.tile small { font-size:12px; color:var(--muted); line-height:1.45; }
+.section {
+  background:white; border:1px solid var(--line);
+  border-radius:14px; padding:14px; margin-top:10px;
+}
+.news {
+  display:block; padding:11px 0; border-bottom:1px solid var(--line);
+  text-decoration:none; color:var(--ink);
+}
+.news:last-child { border:0; }
+.tag {
+  font-size:11px; background:#e0f2fe; color:#075985;
+  border-radius:99px; padding:3px 8px; margin-right:6px;
+}
+.muted { font-size:12px; color:var(--muted); line-height:1.6; }
+.select {
+  width:100%; padding:12px; border:1px solid var(--line);
+  border-radius:10px; background:white; font:inherit; margin:7px 0;
+}
+.btn {
+  display:block; text-align:center; padding:12px;
+  border-radius:10px; background:var(--blue); color:white;
+  text-decoration:none; font-weight:600; margin-top:8px;
+}
+.btn.light { background:#e0f2fe; color:var(--blue); }
+.page { display:none; }
+.page.active { display:block; }
+.bottom {
+  position:fixed; bottom:0; left:0; right:0;
+  background:white; border-top:1px solid var(--line);
+  display:grid; grid-template-columns:repeat(4,1fr);
+  padding:7px 4px max(7px,env(safe-area-inset-bottom));
+  z-index:10;
+}
+.bottom button {
+  border:0; background:none; color:var(--muted);
+  font:inherit; font-size:11px; padding:5px 0;
+}
+.bottom button span { display:block; font-size:21px; margin-bottom:2px; }
+.bottom button.active { color:var(--blue); font-weight:700; }
+.notice {
+  background:#fff7ed; border:1px solid #fed7aa;
+  padding:10px; border-radius:10px;
+  font-size:12px; line-height:1.6; margin-top:12px;
+}
+.member {
+  background:white; border:1px solid var(--line);
+  border-radius:12px; padding:13px; margin:9px 0;
+}
+.member strong { display:block; font-size:15px; }
+.member .status { font-size:12px; color:var(--muted); margin-top:5px; }
+</style>
+</head>
 <body>
-<header><div class="eyebrow">島の暮らしを、ひとつの画面に。</div><h1>🏝 八丈町アプリ</h1><p>行政・生活・交通・防災の総合窓口</p></header>
+
+<header>
+  <div class="eyebrow">島の暮らしを、ひとつの画面に。</div>
+  <h1>🏝 八丈町アプリ</h1>
+  <p>行政・生活・交通・防災の総合窓口</p>
+</header>
+
 <main class="wrap">
+
 <section id="home" class="page active">
-<a class="official" href="https://www.town.hachijo.tokyo.jp/"><div class="symbol">🏛️</div><div><strong>八丈町公式ホームページ ↗</strong><small>町からの公式情報・行政サービス</small></div></a>
-<h2>🚨 大切なお知らせ・防災</h2><a class="alert" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/"><strong>防災・安全情報を確認する ↗</strong><div class="muted">災害時は町などの公式発表を確認してください。</div></a>
-<h2>毎日使う便利メニュー</h2><div class="grid">
-<a class="tile" href="https://www.town.hachijo.tokyo.jp/"><span class="ico">📝</span><strong>行政手続き</strong><small>届出・申請・証明書</small></a>
-<a class="tile" href="https://www.town.hachijo.tokyo.jp/news/"><span class="ico">📰</span><strong>町の新着情報</strong><small>町からのお知らせ</small></a>
-<a class="tile" href="https://www.islandaccess.metro.tokyo.lg.jp/"><span class="ico">🚢</span><strong>船・飛行機</strong><small>運航情報・交通案内</small></a>
-<a class="tile" href="#garbage" onclick="showPage('garbage');return false"><span class="ico">♻️</span><strong>ごみ出し案内</strong><small>地区を選んで確認</small></a>
-<a class="tile" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/higorokarano-sonae/musen/"><span class="ico">📢</span><strong>防災行政無線</strong><small>関連情報を確認</small></a>
-<a class="tile" href="#council" onclick="showPage('council');return false"><span class="ico">👥</span><strong>議会・議員SNS</strong><small>議会情報・公開SNS</small></a>
-<a class="tile" href="https://www.town.hachijo.tokyo.jp/"><span class="ico">❤️</span><strong>医療・福祉・子育て</strong><small>暮らしのお役立ち情報</small></a>
-<a class="tile" href="https://www.town.hachijo.tokyo.jp/"><span class="ico">🏢</span><strong>公共施設・町の窓口</strong><small>公式サイトから探す</small></a>
-</div>
-<h2>📌 町からのお知らせ</h2><div class="section"><a class="news" href="https://www.town.hachijo.tokyo.jp/news/"><span class="tag">公式情報</span>最新のお知らせ一覧を見る ↗</a><a class="news" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/"><span class="tag">防災</span>防災・安全情報を見る ↗</a><div class="muted">※現時点では公式ページへのリンクです。記事の自動取得は今後の開発項目です。</div></div>
+  <a class="official" href="https://www.town.hachijo.tokyo.jp/">
+    <div class="symbol">🏛️</div>
+    <div>
+      <strong>八丈町公式ホームページ ↗</strong>
+      <small>町からの公式情報・行政サービス</small>
+    </div>
+  </a>
+
+  <h2>🚨 大切なお知らせ・防災</h2>
+  <a class="alert" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/">
+    <strong>防災・安全情報を確認する ↗</strong>
+    <div class="muted">災害時は町などの公式発表を確認してください。</div>
+  </a>
+
+  <h2>毎日使う便利メニュー</h2>
+  <div class="grid">
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/">
+      <span class="ico">📝</span><strong>行政手続き</strong>
+      <small>届出・申請・証明書</small>
+    </a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/">
+      <span class="ico">📰</span><strong>町の新着情報</strong>
+      <small>町からのお知らせ</small>
+    </a>
+    <a class="tile" href="https://www.islandaccess.metro.tokyo.lg.jp/">
+      <span class="ico">🚢</span><strong>船・飛行機</strong>
+      <small>運航情報・交通案内</small>
+    </a>
+    <a class="tile" href="#garbage" onclick="showPage('garbage');return false">
+      <span class="ico">♻️</span><strong>ごみ出し案内</strong>
+      <small>地区を選んで確認</small>
+    </a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/">
+      <span class="ico">📢</span><strong>防災・安全情報</strong>
+      <small>町の防災情報</small>
+    </a>
+    <a class="tile" href="#council" onclick="showPage('council');return false">
+      <span class="ico">👥</span><strong>議員SNS一覧</strong>
+      <small>当選した議員の一覧</small>
+    </a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/">
+      <span class="ico">❤️</span><strong>医療・福祉・子育て</strong>
+      <small>暮らしのお役立ち情報</small>
+    </a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/">
+      <span class="ico">🏢</span><strong>公共施設・町の窓口</strong>
+      <small>公式サイトから探す</small>
+    </a>
+  </div>
+
+  <h2>📌 町からのお知らせ</h2>
+  <div class="section">
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/">
+      <span class="tag">公式情報</span>八丈町公式ホームページ ↗
+    </a>
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/articles/oshirase-20261018/">
+      <span class="tag">選挙結果</span>町議会議員選挙の開票結果 ↗
+    </a>
+    <div class="muted">※町の新着情報は公式サイトで確認してください。</div>
+  </div>
 </section>
-<section id="garbage" class="page"><h2>♻️ 地区別ごみ出し案内</h2><div class="section"><p>お住まいの地区を選択してください。</p><select id="district" class="select"><option>三根</option><option>大賀郷</option><option>樫立</option><option>中之郷</option><option>末吉</option></select><p class="muted"><strong id="districtLabel">三根</strong> 地区を選択中です。</p><div class="notice">地区別の収集曜日・分別ルールは、町の正式資料を確認してから登録します。この試作版では収集日をまだ表示していません。</div><a class="btn" href="https://www.town.hachijo.tokyo.jp/">町公式サイトでごみ情報を確認 ↗</a></div></section>
-<section id="council" class="page"><h2>👥 八丈町議会・議員SNS</h2><div class="section"><p>議会情報や、議員が公開しているX（旧Twitter）などへのリンクをまとめるページです。</p><p class="muted">誤ったアカウントを掲載しないよう、本人・公式情報の確認後に個別リンクを登録します。</p><a class="btn" href="https://www.town.hachijo.tokyo.jp/">八丈町公式サイトを開く ↗</a></div></section>
-<section id="news" class="page"><h2>📰 お知らせ</h2><div class="section"><a class="news" href="https://www.town.hachijo.tokyo.jp/news/">八丈町公式・新着情報 ↗</a><a class="news" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/">防災・安全情報 ↗</a><div class="muted">新着情報の自動取得と通知機能は未実装です。</div></div></section>
-<div class="notice">試作版です。町の公式アプリではありません。緊急時は公式の防災情報・緊急通報を利用してください。</div>
+
+<section id="garbage" class="page">
+  <h2>♻️ 地区別ごみ出し案内</h2>
+  <div class="section">
+    <p>お住まいの地区を選択してください。</p>
+    <select id="district" class="select">
+      <option>三根</option>
+      <option>大賀郷</option>
+      <option>樫立</option>
+      <option>中之郷</option>
+      <option>末吉</option>
+    </select>
+    <p class="muted"><strong id="districtLabel">三根</strong> 地区を選択中です。</p>
+    <div class="notice">
+      地区別の収集曜日はまだ登録していません。
+      正式な収集日を確認してから掲載します。
+    </div>
+    <a class="btn" href="https://www.town.hachijo.tokyo.jp/">
+      町公式サイトでごみ情報を確認 ↗
+    </a>
+  </div>
+</section>
+
+<section id="council" class="page">
+  <h2>👥 八丈町議会・議員SNS一覧</h2>
+  <div class="section">
+    <p>2026年10月18日の選挙結果をもとにした一覧です。</p>
+    <p class="muted">
+      SNSアカウントは本人確認ができたものから登録します。
+      未確認のアカウントは掲載していません。
+    </p>
+    <a class="btn" href="https://www.town.hachijo.tokyo.jp/articles/oshirase-20261018/">
+      🗳️ 選挙結果を確認 ↗
+    </a>
+    <a class="btn light" href="https://www.town.hachijo.tokyo.jp/chousei/chougikai/giin-shoukai/g-meibo/">
+      🏛️ 町議会の議員名簿 ↗
+    </a>
+  </div>
+
+  <h2>📱 当選した12名</h2>
+  <div id="councilList"></div>
+  <div class="notice">
+    このページは八丈町の公式アプリではありません。
+    SNSリンクは本人のアカウントを確認してから追加します。
+  </div>
+</section>
+
+<section id="news" class="page">
+  <h2>📰 お知らせ</h2>
+  <div class="section">
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/">
+      八丈町公式・新着情報 ↗
+    </a>
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/">
+      防災・安全情報 ↗
+    </a>
+    <div class="muted">記事の自動取得と通知機能は未実装です。</div>
+  </div>
+</section>
+
+<div class="notice">
+  試作版です。町の公式アプリではありません。
+  緊急時は公式の防災情報・緊急通報を利用してください。
+</div>
 </main>
-<nav class="bottom"><button class="active" data-page="home" onclick="showPage('home',this)"><span>🏠</span>ホーム</button><button data-page="news" onclick="showPage('news',this)"><span>📰</span>お知らせ</button><button data-page="garbage" onclick="showPage('garbage',this)"><span>♻️</span>ごみ出し</button><button data-page="council" onclick="showPage('council',this)"><span>👥</span>議会・SNS</button></nav>
+
+<nav class="bottom">
+  <button class="active" data-page="home" onclick="showPage('home',this)">
+    <span>🏠</span>ホーム
+  </button>
+  <button data-page="news" onclick="showPage('news',this)">
+    <span>📰</span>お知らせ
+  </button>
+  <button data-page="garbage" onclick="showPage('garbage',this)">
+    <span>♻️</span>ごみ出し
+  </button>
+  <button data-page="council" onclick="showPage('council',this)">
+    <span>👥</span>議員SNS
+  </button>
+</nav>
+
 <script>
-function showPage(id,button){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('.bottom button').forEach(b=>b.classList.remove('active'));const btn=button||document.querySelector('.bottom button[data-page="'+id+'"]');if(btn)btn.classList.add('active');window.scrollTo(0,0)}
-document.getElementById('district').addEventListener('change',e=>document.getElementById('districtLabel').textContent=e.target.value);
-</script></body></html>
+function showPage(id, button) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.bottom button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  const activeButton = button ||
+    document.querySelector('.bottom button[data-page="' + id + '"]');
+
+  if (activeButton) activeButton.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+const councilMembers = [
+  "岩﨑 由美",
+  "沖山 恵子",
+  "伊藤 しょう",
+  "浅沼 憲春",
+  "佐々木 丈",
+  "山下 則子",
+  "金川 孝幸",
+  "いせざき 唯",
+  "佐藤 誠",
+  "沖山 昇",
+  "浅沼 清孝",
+  "浅沼 碧海"
+];
+
+document.getElementById("councilList").innerHTML =
+  councilMembers.map((name, index) => `
+    <div class="member">
+      <strong>${index + 1}. ${name}</strong>
+      <div class="status">SNSリンク：確認中</div>
+    </div>
+  `).join("");
+
+document.getElementById("district").addEventListener("change", event => {
+  document.getElementById("districtLabel").textContent = event.target.value;
+});
+</script>
+
+</body>
+</html>
