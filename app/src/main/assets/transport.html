@@ -1,70 +1,76 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#075985">
 <title>船・飛行機の運航状況</title>
 <style>
 body {
-  font-family: sans-serif;
-  background: #eef8fc;
   margin: 0;
   padding: 20px;
-  color: #16445a;
+  font-family: sans-serif;
+  background: #f3f7fa;
+  color: #17212b;
 }
-h1 {
-  text-align: center;
-  font-size: 24px;
+header {
+  background: linear-gradient(135deg,#075985,#0e7490);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
 }
-p {
-  text-align: center;
-}
+h1 { font-size: 22px; margin: 0; }
+p { line-height: 1.7; }
 .link {
   display: block;
+  margin-top: 16px;
+  padding: 20px;
   background: white;
+  border: 1px solid #dbe4ec;
+  border-radius: 14px;
   color: #075985;
   text-decoration: none;
-  padding: 22px 16px;
-  margin: 18px 0;
-  border-radius: 14px;
-  box-shadow: 0 3px 8px #0002;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  text-align: center;
 }
-.link span {
+.link small {
   display: block;
-  font-size: 14px;
-  font-weight: normal;
   margin-top: 8px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: normal;
 }
 .back {
   display: block;
-  text-align: center;
-  margin-top: 28px;
+  margin-top: 24px;
   color: #075985;
 }
+.note { font-size: 12px; color: #64748b; }
 </style>
 </head>
 <body>
 
-<h1>✈️ 船・飛行機の運航状況</h1>
-<p>最新の運航情報を確認できます。</p>
+<header>
+  <h1>🚢 船・飛行機の運航状況</h1>
+  <p>八丈島への交通情報を確認できます。</p>
+</header>
 
 <a class="link"
-   href="https://www.ana.co.jp/fs/dom/jp/"
-   target="_blank">
-✈️ ANA 飛行機の運航状況
-<span>国内線の遅延・欠航などを確認</span>
+   href="https://www.ana.co.jp/fs/dom/jp/">
+  ✈️ ANA（飛行機）
+  <small>航空便の運航状況を確認 ↗</small>
 </a>
 
 <a class="link"
-   href="https://www.tokaikisen.co.jp/schedule/"
-   target="_blank">
-🚢 東海汽船 船の運航状況
-<span>八丈島航路の就航・欠航などを確認</span>
+   href="https://www.tokaikisen.co.jp/schedule/">
+  🚢 東海汽船（船）
+  <small>船の運航予定・運航情報を確認 ↗</small>
 </a>
+
+<p class="note">
+運航状況は各社の公式サイトでご確認ください。
+</p>
 
 <a class="back" href="index.html">← 八丈タウンアプリに戻る</a>
 
