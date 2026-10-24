@@ -62,5 +62,119 @@
       リリース詳細を見る
     </a>
   </p>
+
+<section id="hachijo-weather" style="
+  max-width: 460px;
+  margin: 28px auto;
+  padding: 20px;
+  border-radius: 18px;
+  background: #e0f2fe;
+  color: #12344a;
+  font-family: sans-serif;
+  text-align: center;
+">
+  <h2>🌤️ 八丈島の天気</h2>
+  <p id="weather-updated">天気情報を取得しています…</p>
+  <div id="weather-now" style="font-size: 20px; font-weight: bold;">
+    読み込み中…
+  </div>
+  <p id="weather-detail"></p>
+  <h3>📅 週間天気予報</h3>
+  <div id="weather-week">予報を取得しています…</div>
+  <p style="font-size:12px;">
+    天気データ：<a href="https://open-meteo.com/">Open-Meteo</a>
+  </p>
+</section>
+
+<script>
+(async function () {
+  const now = document.getElementById("weather-now");
+  const detail = document.getElementById("weather-detail");
+  const week = document.getElementById("weather-week");
+  const updated = document.getElementById("weather-updated");
+
+  const weatherText = {
+    0: "快晴 ☀️",
+    1: "おおむね晴れ 🌤️",
+    2: "晴れ時々くもり ⛅",
+    3: "くもり ☁️",
+    45: "霧 🌫️",
+    48: "霧 🌫️",
+    51: "弱い霧雨 🌦️",
+    53: "霧雨 🌦️",
+    55: "強い霧雨 🌧️",
+    61: "弱い雨 🌧️",
+    63: "雨 🌧️",
+    65: "強い雨 🌧️",
+    71: "弱い雪 ❄️",
+    73: "雪 ❄️",
+    75: "強い雪 ❄️",
+    80: "にわか雨 🌦️",
+    81: "雨 🌧️",
+    82: "激しいにわか雨 🌧️",
+    95: "雷雨 ⛈️",
+    96: "ひょうを伴う雷雨 ⛈️",
+    99: "激しい雷雨 ⛈️"
+  };
+
+  try {
+    const url =
+      "https://api.open-meteo.com/v1/forecast" +
+      "?latitude=33.11&longitude=139.79" +
+      "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m" +
+      "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max" +
+      "&timezone=Asia%2FTokyo&forecast_days=7";
+
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("天気データを取得できません");
+    const data = await response.json();
+    const c = data.current;
+    const d = data.daily;
+
+    now.textContent =
+      (weatherText[c.weather_code] || "天気情報") +
+      "　" + Math.round(c.temperature_2m) + "℃";
+
+    detail.textContent =
+      "体感 " + Math.round(c.apparent_temperature) + "℃" +
+      " ／ 湿度 " + c.relative_humidity_2m + "%" +
+      " ／ 降水量 " + c.precipitation + "mm" +
+      " ／ 風速 " + c.wind_speed_10m + "km/h";
+
+    updated.textContent =
+      "現在の気象データ：" +
+      c.time.replace("T", " ");
+
+    week.innerHTML = "";
+
+    d.time.forEach((date, i) => {
+      const day = document.createElement("div");
+      day.style.cssText =
+        "padding:10px;margin:8px 0;background:white;border-radius:10px;text-align:left;";
+
+      const label = i === 0 ? "今日" :
+        new Date(date + "T12:00:00").toLocaleDateString(
+          "ja-JP", { month: "numeric", day: "numeric", weekday: "short" }
+        );
+
+      day.textContent =
+        label + "　" +
+        (weatherText[d.weather_code[i]] || "天気情報") +
+        "　" + Math.round(d.temperature_2m_min[i]) +
+        "〜" + Math.round(d.temperature_2m_max[i]) + "℃" +
+        "　降水確率 " +
+        (d.precipitation_probability_max[i] == null
+          ? "—"
+          : d.precipitation_probability_max[i] + "%");
+
+      week.appendChild(day);
+    });
+  } catch (error) {
+    now.textContent = "天気情報を取得できませんでした";
+    detail.textContent = "通信を確認して、ページを再読み込みしてください。";
+    week.textContent = "現在、予報を表示できません。";
+  }
+})();
+</script>
 </body>
 </html>
