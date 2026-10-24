@@ -1,7 +1,11 @@
+
 package jp.hachijo.townapp
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -9,6 +13,7 @@ import android.webkit.WebViewClient
 import android.webkit.WebChromeClient
 import android.view.ViewGroup
 import android.graphics.Color
+import android.widget.Toast
 
 class MainActivity : Activity() {
     private lateinit var webView: WebView
@@ -16,28 +21,57 @@ class MainActivity : Activity() {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         window.statusBarColor = Color.rgb(7, 89, 133)
         window.navigationBarColor = Color.rgb(7, 89, 133)
+
         webView = WebView(this)
         webView.layoutParams = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
+
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
         webView.settings.allowFileAccess = false
         webView.webChromeClient = WebChromeClient()
+
         webView.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
                 val uri = request?.url ?: return false
-                return if (uri.scheme == "https" || uri.scheme == "http" || uri.scheme == "file") {
+
+                if (uri.scheme == "mailto") {
+                    return try {
+                        val intent = Intent(Intent.ACTION_SENDTO, uri)
+                        startActivity(intent)
+                        true
+                    } catch (e: ActivityNotFoundException) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "メールアプリが見つかりません",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        true
+                    }
+                }
+
+                return if (
+                    uri.scheme == "https" ||
+                    uri.scheme == "http" ||
+                    uri.scheme == "file"
+                ) {
                     false
                 } else {
                     true
                 }
             }
         }
+
         setContentView(webView)
+
         if (savedInstanceState == null) {
             webView.loadUrl("file:///android_asset/index.html")
         } else {
@@ -52,6 +86,10 @@ class MainActivity : Activity() {
 
     @Deprecated("Deprecated in Android API")
     override fun onBackPressed() {
-        if (::webView.isInitialized && webView.canGoBack()) webView.goBack() else super.onBackPressed()
+        if (::webView.isInitialized && webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
