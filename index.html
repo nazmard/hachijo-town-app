@@ -2,89 +2,216 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>八丈タウンアプリ</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 24px 16px;
-      font-family: sans-serif;
-      background: #f0f8ff;
-      color: #17324d;
-      text-align: center;
-    }
-    header {
-      background: #075985;
-      color: white;
-      padding: 28px 16px;
-      border-radius: 18px;
-    }
-    h1 { font-size: 26px; }
-    p { line-height: 1.8; }
-    .download {
-      display: block;
-      max-width: 380px;
-      margin: 28px auto;
-      padding: 18px 12px;
-      border-radius: 12px;
-      background: #087fba;
-      color: white;
-      text-decoration: none;
-      font-size: 19px;
-      font-weight: bold;
-    }
-    .note {
-      font-size: 13px;
-      color: #526579;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>🏝️ 八丈タウンアプリ</h1>
-    <p>八丈島の暮らしに役立つ情報をまとめた試作アプリ</p>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>八丈タウンアプリ｜八丈島の暮らし情報</title>
 
-  <p>交通情報・町役場関連情報などを確認するためのアプリです。</p>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px 14px 40px;
+  font-family: sans-serif;
+  background: linear-gradient(180deg, #eef8ff, #ffffff);
+  color: #17324d;
+}
+
+.container {
+  max-width: 620px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  padding: 30px 16px 25px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 5px 22px #164b7020;
+}
+
+.logo {
+  font-size: clamp(35px, 9vw, 58px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1.25;
+  background: linear-gradient(
+    100deg,
+    #ff3030,
+    #ff9900,
+    #d7dc00,
+    #22c55e,
+    #06a9dc,
+    #285bff,
+    #a020d0
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #526579;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.island {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 21px;
+  margin: 0 0 14px;
+}
+
+.card {
+  background: white;
+  margin-top: 20px;
+  padding: 22px 18px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px #164b7015;
+}
+
+.download {
+  display: block;
+  margin: 20px auto 12px;
+  padding: 17px 12px;
+  max-width: 380px;
+  border-radius: 14px;
+  background: linear-gradient(100deg, #087fba, #2563eb);
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 5px 12px #087fba35;
+}
+
+.download:active {
+  transform: scale(.98);
+}
+
+.version {
+  color: #526579;
+  font-size: 13px;
+}
+
+.note {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.links a {
+  color: #087fba;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#hachijo-weather {
+  background: linear-gradient(145deg, #e0f2fe, #f0f9ff);
+}
+
+#weather-now {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 18px 0;
+}
+
+#weather-detail {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.weather-day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 10px;
+  margin: 8px 0;
+  background: white;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.weather-day strong {
+  color: #075985;
+}
+
+footer {
+  text-align: center;
+  margin-top: 25px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.8;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="island">🏝️</div>
+  <div class="logo">八丈<br>タウンアプリ</div>
+  <p class="subtitle">
+    八丈島の暮らしに役立つ情報を<br>
+    スマートフォンひとつに。
+  </p>
+</header>
+
+<section class="card" style="text-align:center;">
+  <h2>📲 アプリをダウンロード</h2>
+  <p>八丈島の生活情報をまとめたAndroid用試作アプリです。</p>
 
   <a class="download"
      href="https://github.com/nazmard/hachijo-town-app/releases/download/v1.0.0/app-debug.apk">
     📲 APKをダウンロード
   </a>
 
-  <p>Android用・バージョン v1.0.0</p>
+  <p class="version">Android用・バージョン v1.0.0</p>
+
   <p class="note">
-    非公式の試作アプリです。インストールはご自身の判断で行ってください。
-  </p>
-  <p>
-    <a href="https://github.com/nazmard/hachijo-town-app/releases/tag/v1.0.0">
-      リリース詳細を見る
-    </a>
+    非公式の試作アプリです。<br>
+    インストールはご自身の判断で行ってください。
   </p>
 
-<section id="hachijo-weather" style="
-  max-width: 460px;
-  margin: 28px auto;
-  padding: 20px;
-  border-radius: 18px;
-  background: #e0f2fe;
-  color: #12344a;
-  font-family: sans-serif;
-  text-align: center;
-">
-  <h2>🌤️ 八丈島の天気</h2>
-  <p id="weather-updated">天気情報を取得しています…</p>
-  <div id="weather-now" style="font-size: 20px; font-weight: bold;">
-    読み込み中…
-  </div>
-  <p id="weather-detail"></p>
-  <h3>📅 週間天気予報</h3>
-  <div id="weather-week">予報を取得しています…</div>
-  <p style="font-size:12px;">
-    天気データ：<a href="https://open-meteo.com/">Open-Meteo</a>
+  <p class="links">
+    <a href="https://github.com/nazmard/hachijo-town-app/releases/tag/v1.0.0">
+      リリース詳細を見る →
+    </a>
   </p>
 </section>
+
+<section class="card" id="hachijo-weather">
+  <h2>🌤️ 八丈島の天気</h2>
+  <p id="weather-updated">天気情報を取得しています…</p>
+
+  <div id="weather-now">読み込み中…</div>
+  <p id="weather-detail"></p>
+
+  <h3>📅 週間天気予報</h3>
+  <div id="weather-week">予報を取得しています…</div>
+
+  <p class="note">
+    天気データ：
+    <a href="https://open-meteo.com/">Open-Meteo</a>
+  </p>
+</section>
+
+<footer>
+  八丈タウンアプリ（試作版）<br>
+  八丈島の暮らしをもっと便利に。<br>
+  © Hachijo Town App
+</footer>
+
+</div>
 
 <script>
 (async function () {
@@ -94,27 +221,27 @@
   const updated = document.getElementById("weather-updated");
 
   const weatherText = {
-    0: "快晴 ☀️",
-    1: "おおむね晴れ 🌤️",
-    2: "晴れ時々くもり ⛅",
-    3: "くもり ☁️",
-    45: "霧 🌫️",
-    48: "霧 🌫️",
-    51: "弱い霧雨 🌦️",
-    53: "霧雨 🌦️",
-    55: "強い霧雨 🌧️",
-    61: "弱い雨 🌧️",
-    63: "雨 🌧️",
-    65: "強い雨 🌧️",
-    71: "弱い雪 ❄️",
-    73: "雪 ❄️",
-    75: "強い雪 ❄️",
-    80: "にわか雨 🌦️",
-    81: "雨 🌧️",
-    82: "激しいにわか雨 🌧️",
-    95: "雷雨 ⛈️",
-    96: "ひょうを伴う雷雨 ⛈️",
-    99: "激しい雷雨 ⛈️"
+    0:"快晴 ☀️",
+    1:"おおむね晴れ 🌤️",
+    2:"晴れ時々くもり ⛅",
+    3:"くもり ☁️",
+    45:"霧 🌫️",
+    48:"霧 🌫️",
+    51:"弱い霧雨 🌦️",
+    53:"霧雨 🌦️",
+    55:"強い霧雨 🌧️",
+    61:"弱い雨 🌧️",
+    63:"雨 🌧️",
+    65:"強い雨 🌧️",
+    71:"弱い雪 ❄️",
+    73:"雪 ❄️",
+    75:"強い雪 ❄️",
+    80:"にわか雨 🌦️",
+    81:"雨 🌧️",
+    82:"激しいにわか雨 🌧️",
+    95:"雷雨 ⛈️",
+    96:"ひょうを伴う雷雨 ⛈️",
+    99:"激しい雷雨 ⛈️"
   };
 
   try {
@@ -126,7 +253,8 @@
       "&timezone=Asia%2FTokyo&forecast_days=7";
 
     const response = await fetch(url);
-    if (!response.ok) throw new Error("天気データを取得できません");
+    if (!response.ok) throw new Error("天気情報の取得に失敗しました");
+
     const data = await response.json();
     const c = data.current;
     const d = data.daily;
@@ -142,39 +270,49 @@
       " ／ 風速 " + c.wind_speed_10m + "km/h";
 
     updated.textContent =
-      "現在の気象データ：" +
-      c.time.replace("T", " ");
+      "観測データ：" + c.time.replace("T", " ");
 
     week.innerHTML = "";
 
     d.time.forEach((date, i) => {
       const day = document.createElement("div");
-      day.style.cssText =
-        "padding:10px;margin:8px 0;background:white;border-radius:10px;text-align:left;";
+      day.className = "weather-day";
 
       const label = i === 0 ? "今日" :
         new Date(date + "T12:00:00").toLocaleDateString(
-          "ja-JP", { month: "numeric", day: "numeric", weekday: "short" }
+          "ja-JP",
+          {month:"numeric",day:"numeric",weekday:"short"}
         );
 
-      day.textContent =
-        label + "　" +
-        (weatherText[d.weather_code[i]] || "天気情報") +
-        "　" + Math.round(d.temperature_2m_min[i]) +
-        "〜" + Math.round(d.temperature_2m_max[i]) + "℃" +
-        "　降水確率 " +
-        (d.precipitation_probability_max[i] == null
-          ? "—"
-          : d.precipitation_probability_max[i] + "%");
+      const weather =
+        weatherText[d.weather_code[i]] || "天気情報";
+
+      const rain =
+        d.precipitation_probability_max[i] == null
+        ? "—"
+        : d.precipitation_probability_max[i] + "%";
+
+      day.innerHTML =
+        "<strong>" + label + "</strong>" +
+        "<span>" + weather + "</span>" +
+        "<span>" +
+        Math.round(d.temperature_2m_min[i]) +
+        "〜" +
+        Math.round(d.temperature_2m_max[i]) +
+        "℃</span>" +
+        "<span>☔" + rain + "</span>";
 
       week.appendChild(day);
     });
+
   } catch (error) {
     now.textContent = "天気情報を取得できませんでした";
-    detail.textContent = "通信を確認して、ページを再読み込みしてください。";
+    detail.textContent =
+      "通信を確認して、ページを再読み込みしてください。";
     week.textContent = "現在、予報を表示できません。";
   }
 })();
 </script>
+
 </body>
 </html>
