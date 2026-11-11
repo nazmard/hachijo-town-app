@@ -64,7 +64,14 @@ td.sel{background:#fff1d8;font-weight:800}
 .card{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:10px}
 .card .name{font-size:17px;font-weight:700}
 .sns{display:inline-block;padding:10px 14px;border-radius:10px;background:#e0f2fe;color:var(--blue);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:7px 4px max(7px,env(safe-area-inset-bottom));z-index:10}
+.pick{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.pick-h{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.pick-h .ico{font-size:32px}
+.pick-h strong{display:block;font-size:17px}
+.pick-h small{color:var(--muted);font-size:12px}
+.btn.big{padding:18px;font-size:17px}
+.backbtn{display:inline-block;margin:2px 0 0;padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--blue);font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px 2px max(7px,env(safe-area-inset-bottom));z-index:10}
 .bottom button{border:0;background:none;color:var(--muted);font:inherit;font-size:11px;padding:5px 0;cursor:pointer}
 .bottom span{display:block;font-size:21px;margin-bottom:2px}
 .bottom .active{color:var(--blue);font-weight:700}
@@ -95,20 +102,17 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f59
     <div class="muted">災害時は、町や気象庁などの公式発表を確認してください。</div>
   </div>
 
-  <h2 id="transport">🚢✈️ 船・飛行機の運航状況</h2>
-  <div class="box">
-    <a href="https://www.tokaikisen.co.jp/schedule/" target="_blank" rel="noopener">🚢 東海汽船：本日の運航状況（八丈島発着） ↗</a>
-    <a href="https://www.tokaikisen.co.jp/boarding/timetable/" target="_blank" rel="noopener">🚢 東海汽船：時刻表 ↗</a>
-    <a href="https://www.ana.co.jp/ja/jp/domestic/departure/airport/map/hac.html" target="_blank" rel="noopener">✈️ ANA：八丈島空港（運航状況・天気） ↗</a>
-    <a href="https://www.town.hachijo.tokyo.jp/articles/oshirase-20260814/" target="_blank" rel="noopener">📢 東海汽船の代替運航ダイヤについて（町のお知らせ） ↗</a>
-    <div class="muted">運航状況は天候などで変わります。出発前に必ず各社の公式ページで確認してください。八丈島の入出港地（底土港・八重根港）は当日に決まります。東海汽船の当日案内：04996-2-1211</div>
-  </div>
+  <h2>🚢✈️ 船・飛行機の運航状況</h2>
+  <a class="official" href="#transport" data-go="transport">
+    <div class="symbol">🧭</div>
+    <div><strong>東海汽船・ANAの運航状況を見る</strong><small>船か飛行機を選ぶと、公式の運航状況が開きます</small></div>
+  </a>
 
   <h2>毎日使う便利メニュー</h2>
   <div class="grid">
     <a class="tile" href="https://www.town.hachijo.tokyo.jp/kurashi/" target="_blank" rel="noopener"><span class="ico">📝</span><strong>行政手続き</strong><small>届出・申請・証明書</small></a>
     <a class="tile" href="https://www.town.hachijo.tokyo.jp/news/" target="_blank" rel="noopener"><span class="ico">📰</span><strong>町の新着情報</strong><small>町からのお知らせ</small></a>
-    <a class="tile" href="#transport" data-scroll="transport"><span class="ico">🚢</span><strong>船・飛行機</strong><small>東海汽船・ANAの運航状況</small></a>
+    <a class="tile" href="#transport" data-go="transport"><span class="ico">🚢</span><strong>船・飛行機</strong><small>東海汽船・ANAを選んで運航状況を確認</small></a>
     <a class="tile" href="#garbage" data-go="garbage"><span class="ico">♻️</span><strong>ごみ出し案内</strong><small>地区を選んで今日・明日を確認</small></a>
     <a class="tile" href="https://www.8bus.jp/hachijo/" target="_blank" rel="noopener"><span class="ico">🚌</span><strong>町営バス</strong><small>路線・時刻を確認</small></a>
     <a class="tile" href="https://hachijohospital.jp/" target="_blank" rel="noopener"><span class="ico">🏥</span><strong>町立病院</strong><small>診療・受診のご案内</small></a>
@@ -139,6 +143,7 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f59
 </section>
 
 <section id="news" class="page">
+  <button class="backbtn" type="button" data-back>‹ 戻る</button>
   <h2>📰 お知らせ</h2>
   <div class="section">
     <a class="news" href="https://www.town.hachijo.tokyo.jp/news/" target="_blank" rel="noopener">八丈町公式・新着情報 ↗</a>
@@ -148,6 +153,7 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f59
 </section>
 
 <section id="garbage" class="page">
+  <button class="backbtn" type="button" data-back>‹ 戻る</button>
   <h2>♻️ ごみ出しカレンダー</h2>
   <div class="banner" id="gYearEnd" hidden>年末年始（12月29日〜1月3日ごろ）は、収集日が変わることがあります。町のお知らせで確認してください。</div>
   <div class="section">
@@ -183,6 +189,7 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f59
 </section>
 
 <section id="council" class="page">
+  <button class="backbtn" type="button" data-back>‹ 戻る</button>
   <h2>🏛️ 八丈町議会議員の紹介</h2>
   <div class="notice" style="margin-top:0"><strong>表記は暫定です。</strong>2026年10月18日の町議会議員選挙の結果（八丈町公式サイト）をもとに作成しています。町の議員名簿は「調整中」のため、名簿が公開されたら更新します。氏名の表記は、公式の発表で確認してください。</div>
   <h2>議員一覧（五十音順）</h2>
@@ -203,6 +210,30 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f59
   <p class="muted" style="margin-top:12px">SNSリンクは各アカウントへの外部リンクです。八丈町および八丈町議会が運営・公認するものではなく、個人による独立した取り組みです。</p>
 </section>
 
+<section id="transport" class="page">
+  <button class="backbtn" type="button" data-back>‹ 戻る</button>
+  <h2>🧭 交通の案内</h2>
+  <p class="muted" style="margin-bottom:12px">調べたいほうを選んでください。大きなボタンを押すと、公式の運航状況のページがすぐに開きます。</p>
+
+  <div class="pick">
+    <div class="pick-h"><span class="ico">🚢</span><div><strong>東海汽船（船）</strong><small>八丈島へ行く船の運航状況・時刻表</small></div></div>
+    <a class="btn big" href="https://www.tokaikisen.co.jp/schedule/" target="_blank" rel="noopener">本日の運航状況を見る ↗</a>
+    <a class="btn light" href="https://www.tokaikisen.co.jp/boarding/timetable/" target="_blank" rel="noopener">時刻表を見る ↗</a>
+    <a class="btn light" href="https://www.town.hachijo.tokyo.jp/articles/oshirase-20260814/" target="_blank" rel="noopener">代替運航ダイヤについて（町のお知らせ） ↗</a>
+    <p class="muted" style="margin-top:10px">八丈島の入出港地（底土港・八重根港）は当日に決まります。東海汽船の当日案内：04996-2-1211</p>
+  </div>
+
+  <div class="pick">
+    <div class="pick-h"><span class="ico">✈️</span><div><strong>ANA（飛行機）</strong><small>羽田 ⇄ 八丈島の運航状況</small></div></div>
+    <a class="btn big" href="https://www.ana.co.jp/fs/dom/jp/" target="_blank" rel="noopener">運航状況を検索する ↗</a>
+    <p class="muted" style="margin-top:8px"><strong>調べ方：</strong>ANAの画面で「路線で検索」を選び、出発地を「羽田」、到着地を「八丈島」にして、日付を選び、「検索する」を押します。八丈島から羽田へ帰る便は、出発地と到着地を入れ替えてください。</p>
+    <a class="btn light" href="https://www.islandaccess.metro.tokyo.lg.jp/traffic/hachijojima/" target="_blank" rel="noopener">羽田 ⇄ 八丈島：全便の運航状況（東京都） ↗</a>
+    <p class="muted" style="margin-top:8px">東京都のページでは、検索せずに、羽田から八丈島、八丈島から羽田の全便が一覧で見られます。</p>
+  </div>
+
+  <p class="muted">運航状況は天候などで変わります。出発前に必ず、各社の公式ページで確認してください。</p>
+</section>
+
 <div class="notice">
   <strong>📋 開発者・お問い合わせ</strong>
   開発者：服部克彦<br>
@@ -218,33 +249,56 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f59
 <nav class="bottom" aria-label="メインメニュー">
   <button class="active" data-page="home" type="button"><span>🏠</span>ホーム</button>
   <button data-page="news" type="button"><span>📰</span>お知らせ</button>
+  <button data-page="transport" type="button"><span>🧭</span>交通</button>
   <button data-page="garbage" type="button"><span>♻️</span>ごみ出し</button>
   <button data-page="council" type="button"><span>👥</span>議員紹介</button>
 </nav>
 
 <script>
 // ---- 画面の切り替え（すべてこの1ファイル内。別ファイルへの移動はしません）----
-const PAGES = ["home", "news", "garbage", "council"];
-function showPage(id) {
+const PAGES = ["home", "news", "transport", "garbage", "council"];
+let positions = {};   // 画面ごとの、最後に見ていた位置
+try { positions = JSON.parse(sessionStorage.getItem("hachijoPos") || "{}"); } catch (e) {}
+let current = null;
+function savePos() {
+  if (!current) return;
+  positions[current] = window.scrollY || document.documentElement.scrollTop || 0;
+  try { sessionStorage.setItem("hachijoPos", JSON.stringify(positions)); } catch (e) {}
+}
+function showPage(id, restore) {
   if (PAGES.indexOf(id) < 0) id = "home";
+  savePos();
   PAGES.forEach(p => document.getElementById(p).classList.toggle("active", p === id));
   document.querySelectorAll(".bottom button").forEach(b => b.classList.toggle("active", b.dataset.page === id));
-  window.scrollTo(0, 0);
+  current = id;
+  const y = restore ? (positions[id] || 0) : 0;
+  requestAnimationFrame(() => { window.scrollTo(0, y); requestAnimationFrame(() => window.scrollTo(0, y)); });
 }
 function go(id) {
-  if (location.hash.replace("#", "") !== id) history.pushState({page: id}, "", "#" + id);
-  showPage(id);
+  if (id === current) return;
+  const depth = (history.state && history.state.depth) || 0;
+  history.pushState({page: id, depth: depth + 1}, "", "#" + id);
+  showPage(id, false);
+}
+function goBack() {
+  if (history.state && history.state.depth > 0) { history.back(); return; }  // 前の画面へ（位置も戻る）
+  showPage("home", true);
+  history.replaceState({page: "home", depth: 0}, "", "#home");
 }
 document.addEventListener("click", e => {
+  const back = e.target.closest("[data-back]");
+  if (back) { e.preventDefault(); goBack(); return; }
   const nav = e.target.closest("[data-page]");
   if (nav) { e.preventDefault(); go(nav.dataset.page); return; }
   const link = e.target.closest("[data-go]");
-  if (link) { e.preventDefault(); go(link.dataset.go); return; }
-  const sc = e.target.closest("[data-scroll]");
-  if (sc) { e.preventDefault(); document.getElementById(sc.dataset.scroll).scrollIntoView(); }
+  if (link) { e.preventDefault(); go(link.dataset.go); }
 });
-window.addEventListener("popstate", () => showPage(location.hash.replace("#", "") || "home"));
-showPage(location.hash.replace("#", "") || "home");
+window.addEventListener("popstate", () => showPage(location.hash.replace("#", "") || "home", true));
+window.addEventListener("pagehide", savePos);
+const h0 = location.hash.replace("#", "");
+const first = PAGES.indexOf(h0) >= 0 ? h0 : "home";
+history.replaceState({page: first, depth: 0}, "", "#" + first);
+showPage(first, true);
 
 // ---- ごみ出し ----
 const SCH = {
