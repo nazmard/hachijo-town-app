@@ -2,219 +2,76 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#075985">
-<title><h1>🏝 八丈タウンアプリ</h1></title>
+<title>八丈タウンアプリ</title>
 <style>
-:root {
-  --blue:#075985;
-  --blue2:#0284c7;
-  --ink:#17212b;
-  --muted:#64748b;
-  --line:#dbe4ec;
-  --bg:#f3f7fa;
-  --red:#b91c1c;
-}
-* { box-sizing:border-box; }
-html { scroll-behavior:auto; }
-body {
-  margin:0;
-  font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  padding-bottom:78px;
-}
-header {
-  background:linear-gradient(135deg,#075985,#0e7490);
-  color:white;
-  padding:20px 17px 17px;
-  border-radius:0 0 22px 22px;
-}
-header .eyebrow { font-size:12px; opacity:.9; }
-header h1 { font-size:22px; margin:5px 0; }
-header p { margin:0; font-size:13px; opacity:.95; }
-.wrap { padding:15px; max-width:680px; margin:auto; }
-.prototype-notice {
-  background:#fff1f2;
-  border:2px solid #dc2626;
-  border-radius:12px;
-  padding:13px 14px;
-  margin:0 0 14px;
-  color:#991b1b;
-  font-size:14px;
-  font-weight:700;
-  line-height:1.6;
-}
-.prototype-notice strong {
-  display:block;
-  font-size:15px;
-  margin-bottom:3px;
-}
-.official {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  background:white;
-  color:var(--blue);
-  border-radius:14px;
-  padding:15px;
-  text-decoration:none;
-  margin-top:0;
-  border:1px solid var(--line);
-}
-.official .symbol { font-size:27px; }
-.official strong { display:block; }
-.official small { color:var(--muted); }
-h2 { font-size:17px; margin:21px 0 10px; }
-.alert {
-  display:block;
-  background:#fff;
-  border:1px solid #fecaca;
-  border-left:5px solid var(--red);
-  border-radius:12px;
-  padding:13px;
-  text-decoration:none;
-  color:var(--ink);
-}
-.alert strong { color:var(--red); }
-.grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
-}
-.tile {
-  background:white;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:15px 12px;
-  text-decoration:none;
-  color:var(--ink);
-  min-height:106px;
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-.tile .ico { font-size:25px; }
-.tile strong { font-size:14px; }
-.tile small {
-  font-size:12px;
-  color:var(--muted);
-  line-height:1.45;
-}
-.section {
-  background:white;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:14px;
-  margin-top:10px;
-}
-.news {
-  display:block;
-  padding:11px 0;
-  border-bottom:1px solid var(--line);
-  text-decoration:none;
-  color:var(--ink);
-}
-.news:last-child { border:0; }
-.tag {
-  font-size:11px;
-  background:#e0f2fe;
-  color:#075985;
-  border-radius:99px;
-  padding:3px 8px;
-  margin-right:6px;
-}
-.muted {
-  font-size:12px;
-  color:var(--muted);
-  line-height:1.6;
-}
-.select {
-  width:100%;
-  padding:12px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:white;
-  font:inherit;
-  margin:7px 0;
-}
-.btn {
-  display:block;
-  text-align:center;
-  padding:12px;
-  border-radius:10px;
-  background:var(--blue);
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-  margin-top:8px;
-}
-.btn.light { background:#e0f2fe; color:var(--blue); }
-.page { display:none; }
-.page.active { display:block; }
-.bottom {
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:white;
-  border-top:1px solid var(--line);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  padding:7px 4px max(7px,env(safe-area-inset-bottom));
-  z-index:10;
-}
-.bottom button {
-  border:0;
-  background:none;
-  color:var(--muted);
-  font:inherit;
-  font-size:11px;
-  padding:5px 0;
-  cursor:pointer;
-}
-.bottom button span {
-  display:block;
-  font-size:21px;
-  margin-bottom:2px;
-}
-.bottom button.active { color:var(--blue); font-weight:700; }
-.notice {
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  padding:12px;
-  border-radius:10px;
-  font-size:12px;
-  line-height:1.7;
-  margin-top:12px;
-}
-.notice strong {
-  display:block;
-  font-size:14px;
-  margin-bottom:6px;
-  color:#7c2d12;
-}
-.notice a {
-  color:#075985;
-  overflow-wrap:anywhere;
-}
-.member {
-  background:white;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:13px;
-  margin:9px 0;
-}
-.member strong { display:block; font-size:15px; }
-.member .status {
-  font-size:12px;
-  color:var(--muted);
-  margin-top:5px;
-}
+:root{--blue:#075985;--ink:#17212b;--muted:#64748b;--line:#dbe4ec;--bg:#f3f7fa;--red:#b91c1c}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);padding-bottom:84px;line-height:1.6}
+header{background:linear-gradient(135deg,#075985,#0e7490);color:#fff;padding:20px 17px 17px;border-radius:0 0 22px 22px}
+header .eyebrow{font-size:12px;opacity:.9}
+header h1{font-size:22px;margin:5px 0}
+header p{margin:0;font-size:13px}
+.wrap{padding:15px;max-width:680px;margin:auto}
+h2{font-size:17px;margin:22px 0 10px}
+.muted{font-size:12px;color:var(--muted);line-height:1.6}
+.proto{background:#fff1f2;border:2px solid #dc2626;border-radius:12px;padding:13px 14px;margin-bottom:14px;color:#991b1b;font-size:14px;font-weight:700}
+.proto strong{display:block;font-size:15px;margin-bottom:3px}
+.official{display:flex;align-items:center;gap:12px;background:#fff;color:var(--blue);border:1px solid var(--line);border-radius:14px;padding:15px;text-decoration:none}
+.official .symbol{font-size:27px}
+.official strong{display:block}
+.official small{color:var(--muted)}
+.box{background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:13px}
+.box.red{border-color:#fecaca;border-left-color:var(--red)}
+.box a{display:block;padding:10px 0;color:var(--ink);text-decoration:none;font-weight:700}
+.box a+a{border-top:1px solid var(--line)}
+.box .muted{margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 12px;text-decoration:none;color:var(--ink);min-height:106px;display:flex;flex-direction:column;gap:6px}
+.tile .ico{font-size:25px}
+.tile strong{font-size:14px}
+.tile small{font-size:12px;color:var(--muted);line-height:1.45}
+.section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px}
+.news{display:block;padding:11px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.news:last-of-type{border:0}
+.tag{font-size:11px;background:#e0f2fe;color:var(--blue);border-radius:99px;padding:3px 8px;margin-right:6px}
+.page{display:none}
+.page.active{display:block}
+.weather{background:#e0f2fe;border-radius:16px;padding:16px;text-align:center;margin-top:22px}
+.weather h2{margin:0 0 6px}
+.wnow{font-size:20px;font-weight:700;margin:6px 0}
+.wday{background:#fff;border-radius:10px;padding:10px;margin:8px 0;text-align:left;font-size:14px}
+.notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:12px;font-size:12px;line-height:1.7;margin-top:14px}
+.notice strong{display:block;font-size:14px;margin-bottom:6px;color:#7c2d12}
+.notice a{color:var(--blue);overflow-wrap:anywhere}
+.btn{display:block;margin-top:10px;padding:13px;text-align:center;border-radius:11px;background:var(--blue);color:#fff;font-weight:700;font-size:14px;text-decoration:none}
+.btn.light{background:#e0f2fe;color:var(--blue)}
+select{width:100%;padding:13px 12px;border:1px solid #a9c4c7;border-radius:10px;background:#fff;font-size:17px;color:var(--ink)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.tabs button{padding:12px;border:1px solid #a9c4c7;border-radius:10px;background:#fff;font:inherit;font-size:16px;font-weight:700;color:var(--blue)}
+.tabs button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.result{margin-top:14px;padding:16px;border-radius:13px;background:#e9f6f5;border:1px solid #c5e5e2}
+.result.none{background:#f4f6f6;border-color:#e0e7e7}
+.result h3{font-size:18px;margin:0 0 9px}
+.chip{display:inline-block;margin:0 8px 8px 0;background:#fff;border:1px solid #b7dcd8;border-radius:999px;padding:7px 13px;font-weight:700}
+.banner{background:#fff1d8;border:1px solid #f5cf8b;border-radius:12px;padding:12px 14px;margin-bottom:14px;font-size:14px;color:#7a4a00}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 5px;border-bottom:1px solid var(--line);text-align:center}
+th{background:#f3f8f8;color:#456267}
+td:first-child,th:first-child{text-align:left}
+td.sel{background:#fff1d8;font-weight:800}
+.card{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:10px}
+.card .name{font-size:17px;font-weight:700}
+.sns{display:inline-block;padding:10px 14px;border-radius:10px;background:#e0f2fe;color:var(--blue);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:7px 4px max(7px,env(safe-area-inset-bottom));z-index:10}
+.bottom button{border:0;background:none;color:var(--muted);font:inherit;font-size:11px;padding:5px 0;cursor:pointer}
+.bottom span{display:block;font-size:21px;margin-bottom:2px}
+.bottom .active{color:var(--blue);font-weight:700}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
 </style>
 </head>
 <body>
-
 <header>
   <div class="eyebrow">島の暮らしを、ひとつの画面に。</div>
   <h1>🏝 八丈タウンアプリ</h1>
@@ -223,471 +80,264 @@ h2 { font-size:17px; margin:21px 0 10px; }
 
 <main class="wrap">
 
-  <!-- ホーム -->
-  <section id="home" class="page active">
+<section id="home" class="page active">
+  <div class="proto"><strong>⚠️ 試作・評価版について</strong>このアプリは試作・評価版であり、八丈町の公式アプリではありません。</div>
+  <a class="official" href="https://www.town.hachijo.tokyo.jp/" target="_blank" rel="noopener">
+    <div class="symbol">🏛️</div>
+    <div><strong>八丈町公式ホームページ ↗</strong><small>町からの公式情報・行政サービス</small></div>
+  </a>
 
-    <div class="prototype-notice">
-      <strong>⚠️ 試作・評価版について</strong>
-      このアプリは試作・評価版であり、八丈町の公式アプリではありません。
-    </div>
-
-    <a class="official"
-       href="https://www.town.hachijo.tokyo.jp/"
-       target="_blank" rel="noopener">
-      <div class="symbol">🏛️</div>
-      <div>
-        <strong>八丈町公式ホームページ ↗</strong>
-        <small>町からの公式情報・行政サービス</small>
-      </div>
-    </a>
-
-    <h2>🚨 大切なお知らせ・防災</h2>
-    <a class="alert"
-       href="https://www.town.hachijo.tokyo.jp/bousai-anzen/"
-       target="_blank" rel="noopener">
-      <strong>防災・安全情報を確認する ↗</strong>
-      <div class="muted">災害時は町などの公式発表を確認してください。</div>
-    </a>
-
-    <h2>毎日使う便利メニュー</h2>
-    <div class="grid">
-
-      <a class="tile"
-         href="https://www.town.hachijo.tokyo.jp/"
-         target="_blank" rel="noopener">
-        <span class="ico">📝</span>
-        <strong>行政手続き</strong>
-        <small>届出・申請・証明書</small>
-      </a>
-
-      <a class="tile"
-         href="https://www.town.hachijo.tokyo.jp/"
-         target="_blank" rel="noopener">
-        <span class="ico">📰</span>
-        <strong>町の新着情報</strong>
-        <small>町からのお知らせ</small>
-      </a>
-
-     
-      <a class="tile" href="transport.html">
-        <span class="ico">🚢</span>
-        <strong>船・飛行機</strong>
-        <small>東海汽船・ANAの運航状況を確認</small>
-      </a>
-
-
-      <a class="tile"
-         href="#garbage"
-         onclick="navigateToPage('garbage');return false">
-        <span class="ico">♻️</span>
-        <strong>ごみ出し案内</strong>
-        <small>地区を選んで確認</small>
-      </a>
-
-      <a class="tile"
-         href="https://www.town.hachijo.tokyo.jp/bousai-anzen/"
-         target="_blank" rel="noopener">
-        <span class="ico">📢</span>
-        <strong>防災・安全情報</strong>
-        <small>町の防災情報</small>
-      </a>
-
-      <a class="tile"
-         href="#council"
-         onclick="navigateToPage('council');return false">
-        <span class="ico">👥</span>
-        <strong>議員SNS一覧</strong>
-        <small>議員の一覧・SNS情報</small>
-      </a>
-
-      <a class="tile"
-         href="https://www.town.hachijo.tokyo.jp/kenko-fukushi/"
-         target="_blank" rel="noopener">
-        <span class="ico">❤️</span>
-        <strong>医療・福祉・子育て</strong>
-        <small>福祉健康課の健康・福祉情報</small>
-      </a>
-
-      <a class="tile"
-         href="https://www.town.hachijo.tokyo.jp/kurashi/shisetsu/"
-         target="_blank" rel="noopener">
-        <span class="ico">🏢</span>
-        <strong>施設利用・公共施設</strong>
-        <small>施設案内・利用情報を確認</small>
-      </a>
-
-    </div>
-
-    <h2>📌 町からのお知らせ</h2>
-    <div class="section">
-      <a class="news"
-         href="https://www.town.hachijo.tokyo.jp/"
-         target="_blank" rel="noopener">
-        <span class="tag">公式情報</span>八丈町公式ホームページ ↗
-      </a>
-
-      <a class="news"
-         href="https://www.town.hachijo.tokyo.jp/articles/oshirase-20261018/"
-         target="_blank" rel="noopener">
-        <span class="tag">選挙結果</span>町議会議員選挙の開票結果 ↗
-      </a>
-
-      <div class="muted">※町の新着情報は公式サイトで確認してください。</div>
-    </div>
-  </section>
-
-  <!-- ごみ出し -->
-  <section id="garbage" class="page">
-    <h2>♻️ 地区別ごみ出し案内</h2>
-    <div class="section">
-      <p>お住まいの地区を選択してください。</p>
-
-      <select id="district" class="select">
-        <option>三根</option>
-        <option>大賀郷</option>
-        <option>樫立</option>
-        <option>中之郷</option>
-        <option>末吉</option>
-      </select>
-
-      <p class="muted">
-        <strong id="districtLabel">三根</strong> 地区を選択中です。
-      </p>
-
-      <div class="notice">
-        地区別の収集曜日はまだ登録はしていません。
-        正式な収集日を確認してから掲載します。
-      </div>
-
-      <a class="btn"
-         href="https://www.town.hachijo.tokyo.jp/"
-         target="_blank" rel="noopener">
-        町公式サイトでごみ情報を確認 ↗
-      </a>
-    </div>
-  </section>
-
-  <!-- 議員SNS -->
-  <section id="council" class="page">
-    <h2>👥 八丈町議会・議員SNS一覧</h2>
-
-    <div class="section">
-      <p>議員情報を確認するためのページです。</p>
-      <p class="muted">
-        SNSアカウントは本人確認ができたものから登録します。
-        未確認のアカウントは掲載していません。
-      </p>
-
-      <a class="btn light"
-         href="https://www.town.hachijo.tokyo.jp/chousei/chougikai/giin-shoukai/g-meibo/"
-         target="_blank" rel="noopener">
-        🏛️ 町議会の議員名簿 ↗
-      </a>
-    </div>
-
-    <h2>📱 議員一覧</h2>
-    <div id="councilList"></div>
-
-    <div class="notice">
-      このページは八丈町の公式アプリではありません。
-      SNSリンクは本人のアカウントを確認してから追加します。
-    </div>
-  </section>
-
-  <!-- お知らせ -->
-  <section id="news" class="page">
-    <h2>📰 お知らせ</h2>
-    <div class="section">
-      <a class="news"
-         href="https://www.town.hachijo.tokyo.jp/"
-         target="_blank" rel="noopener">
-        八丈町公式・新着情報 ↗
-      </a>
-
-      <a class="news"
-         href="https://www.town.hachijo.tokyo.jp/bousai-anzen/"
-         target="_blank" rel="noopener">
-        防災・安全情報 ↗
-      </a>
-
-      <div class="muted">記事の自動取得と通知機能は未実装です。</div>
-    </div>
-  </section>
-
-  <!-- 開発者情報：全ページ共通の下段 -->
-  <div class="notice">
-    <strong>📋 開発者・お問い合わせ</strong>
-    開発者：服部克彦<br>
-    住所：東京都八丈島八丈町三根2008-1<br>
-    事業所：八丈島アクアトリップダイビング<br>
-    代表者：服部克彦<br>
-    メール：
-   <a href="mailto:pikochin56@gmail.com">メール</a>
-    <br><br>
-    本アプリは試作・評価版であり、八丈町の公式アプリではありません。<br>
-    緊急時は町などの公式防災情報・緊急通報をご利用ください。<br><br>
-    
-    </be>
+  <h2>🚨 大切なお知らせ・防災</h2>
+  <div class="box red">
+    <a href="https://www.town.hachijo.tokyo.jp/bousai-anzen/" target="_blank" rel="noopener">防災・安全情報（八丈町） ↗</a>
+    <a href="https://x.com/HachijoTown" target="_blank" rel="noopener">八丈町 防災無線（X） ↗</a>
+    <a href="https://www.jma.go.jp/" target="_blank" rel="noopener">気象庁（警報・注意報） ↗</a>
+    <div class="muted">災害時は、町や気象庁などの公式発表を確認してください。</div>
   </div>
 
+  <h2 id="transport">🚢✈️ 船・飛行機の運航状況</h2>
+  <div class="box">
+    <a href="https://www.tokaikisen.co.jp/schedule/" target="_blank" rel="noopener">🚢 東海汽船：本日の運航状況（八丈島発着） ↗</a>
+    <a href="https://www.tokaikisen.co.jp/boarding/timetable/" target="_blank" rel="noopener">🚢 東海汽船：時刻表 ↗</a>
+    <a href="https://www.ana.co.jp/ja/jp/domestic/departure/airport/map/hac.html" target="_blank" rel="noopener">✈️ ANA：八丈島空港（運航状況・天気） ↗</a>
+    <a href="https://www.town.hachijo.tokyo.jp/articles/oshirase-20260814/" target="_blank" rel="noopener">📢 東海汽船の代替運航ダイヤについて（町のお知らせ） ↗</a>
+    <div class="muted">運航状況は天候などで変わります。出発前に必ず各社の公式ページで確認してください。八丈島の入出港地（底土港・八重根港）は当日に決まります。東海汽船の当日案内：04996-2-1211</div>
+  </div>
+
+  <h2>毎日使う便利メニュー</h2>
+  <div class="grid">
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/kurashi/" target="_blank" rel="noopener"><span class="ico">📝</span><strong>行政手続き</strong><small>届出・申請・証明書</small></a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/news/" target="_blank" rel="noopener"><span class="ico">📰</span><strong>町の新着情報</strong><small>町からのお知らせ</small></a>
+    <a class="tile" href="#transport" data-scroll="transport"><span class="ico">🚢</span><strong>船・飛行機</strong><small>東海汽船・ANAの運航状況</small></a>
+    <a class="tile" href="#garbage" data-go="garbage"><span class="ico">♻️</span><strong>ごみ出し案内</strong><small>地区を選んで今日・明日を確認</small></a>
+    <a class="tile" href="https://www.8bus.jp/hachijo/" target="_blank" rel="noopener"><span class="ico">🚌</span><strong>町営バス</strong><small>路線・時刻を確認</small></a>
+    <a class="tile" href="https://hachijohospital.jp/" target="_blank" rel="noopener"><span class="ico">🏥</span><strong>町立病院</strong><small>診療・受診のご案内</small></a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/kenko-fukushi/" target="_blank" rel="noopener"><span class="ico">❤️</span><strong>健康・福祉</strong><small>健康診査・介護・福祉</small></a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/kosodate-kyouiku/" target="_blank" rel="noopener"><span class="ico">🧒</span><strong>子育て・教育</strong><small>妊娠・出産・学校</small></a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/kurashi/shisetsu/" target="_blank" rel="noopener"><span class="ico">🏢</span><strong>施設利用</strong><small>公共施設の案内</small></a>
+    <a class="tile" href="#council" data-go="council"><span class="ico">👥</span><strong>町議会・議員紹介</strong><small>議員一覧・SNS・議会映像</small></a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/onsen-konzatsu/" target="_blank" rel="noopener"><span class="ico">♨️</span><strong>温泉混雑情報</strong><small>町の公式ページ</small></a>
+    <a class="tile" href="https://www.town.hachijo.tokyo.jp/wwc-live/" target="_blank" rel="noopener"><span class="ico">🐋</span><strong>ホエールカメラ</strong><small>ライブ映像（町公式）</small></a>
+  </div>
+
+  <h2>📌 町からのお知らせ</h2>
+  <div class="section">
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/news/" target="_blank" rel="noopener"><span class="tag">公式情報</span>八丈町の新着情報 ↗</a>
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/articles/oshirase-20261018/" target="_blank" rel="noopener"><span class="tag">選挙結果</span>町議会議員選挙の開票結果 ↗</a>
+    <div class="muted">町の新着情報は、公式サイトで確認してください。</div>
+  </div>
+
+  <section class="weather" aria-live="polite">
+    <h2>🌤️ 八丈島の天気（参考）</h2>
+    <p class="muted" id="wUpdated">天気情報を取得しています…</p>
+    <div class="wnow" id="wNow">読み込み中…</div>
+    <p class="muted" id="wDetail"></p>
+    <h3 style="font-size:15px;margin:12px 0 4px">📅 週間天気予報</h3>
+    <div id="wWeek">予報を取得しています…</div>
+    <p class="muted">気象データ（予報モデル）：<a href="https://open-meteo.com/">Open-Meteo</a>。気象庁の公式予報ではありません。警報・注意報は気象庁で確認してください。</p>
+  </section>
+</section>
+
+<section id="news" class="page">
+  <h2>📰 お知らせ</h2>
+  <div class="section">
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/news/" target="_blank" rel="noopener">八丈町公式・新着情報 ↗</a>
+    <a class="news" href="https://www.town.hachijo.tokyo.jp/bousai-anzen/" target="_blank" rel="noopener">防災・安全情報 ↗</a>
+    <div class="muted">記事の自動取得と通知機能は、まだありません。</div>
+  </div>
+</section>
+
+<section id="garbage" class="page">
+  <h2>♻️ ごみ出しカレンダー</h2>
+  <div class="banner" id="gYearEnd" hidden>年末年始（12月29日〜1月3日ごろ）は、収集日が変わることがあります。町のお知らせで確認してください。</div>
+  <div class="section">
+    <div class="muted" id="gDate"></div>
+    <label for="gArea" style="display:block;font-weight:700;margin:4px 0 10px">お住まいの地区を選んでください</label>
+    <select id="gArea">
+      <option value="mine">三根</option>
+      <option value="ogago">大賀郷</option>
+      <option value="sakagami">坂上（樫立・中之郷・末吉）</option>
+    </select>
+    <div class="tabs" role="group" aria-label="表示する日">
+      <button type="button" id="gTab0" aria-pressed="true">今日</button>
+      <button type="button" id="gTab1" aria-pressed="false">明日</button>
+    </div>
+    <div id="gResult" class="result" aria-live="polite"></div>
+    <p class="muted" style="margin-top:12px">ごみは収集日の朝8時30分までに、決められた集積所へ出してください。祝日などで変わる場合は、町のお知らせを確認してください。</p>
+  </div>
+  <div class="section">
+    <strong>地区別・週間収集予定</strong>
+    <div style="overflow-x:auto;margin-top:8px">
+      <table><thead><tr><th>曜日</th><th>三根</th><th>大賀郷</th><th>坂上</th></tr></thead><tbody id="gWeek"></tbody></table>
+    </div>
+    <p class="muted">坂上は樫立・中之郷・末吉です。収集曜日の基準：八丈町ごみ分別区分表（令和6年4月1日）</p>
+  </div>
+  <div class="box" style="margin-top:10px">
+    <a href="https://www.town.hachijo.tokyo.jp/kurashi/seikatsukankyo/gomikan/" target="_blank" rel="noopener">ごみに関して（分別区分表など） ↗</a>
+    <a href="https://www.town.hachijo.tokyo.jp/kurashi/seikatsukankyo/kaden4/" target="_blank" rel="noopener">家電4品目のリサイクル ↗</a>
+    <a href="https://www.town.hachijo.tokyo.jp/kurashi/seikatsukankyo/ippanhaikibutsu-shori/" target="_blank" rel="noopener">ごみの処理手数料 ↗</a>
+    <a href="https://prd-hachijo.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2026/04/17184351/bassaibokunosyorihouhou.pdf" target="_blank" rel="noopener">伐採木の処理方法（PDF） ↗</a>
+    <a href="https://prd-hachijo.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2026/04/01185455/richiumudenchi.pdf" target="_blank" rel="noopener">リチウム電池などの捨て方（PDF） ↗</a>
+    <div class="muted">問い合わせ：八丈町住民課環境係 04996-2-1123</div>
+  </div>
+</section>
+
+<section id="council" class="page">
+  <h2>🏛️ 八丈町議会議員の紹介</h2>
+  <div class="notice" style="margin-top:0"><strong>表記は暫定です。</strong>2026年10月18日の町議会議員選挙の結果（八丈町公式サイト）をもとに作成しています。町の議員名簿は「調整中」のため、名簿が公開されたら更新します。氏名の表記は、公式の発表で確認してください。</div>
+  <h2>議員一覧（五十音順）</h2>
+  <p class="muted" style="margin-bottom:10px">SNSを掲載している議員は「X を見る」、そうでない議員は、町の議会録画映像（一般質問）のページへ案内しています。</p>
+  <div id="cList"></div>
+  <h2>議会での活動・一般質問</h2>
+  <div class="section" style="margin-top:0">
+    <strong>令和8年 議会録画映像</strong>
+    <p class="muted">定例会ごとに、一般質問をした議員の映像を見られます。選挙前の議会を含むため、現在の議員以外の方も載っています。</p>
+    <a class="btn light" href="https://www.town.hachijo.tokyo.jp/chousei/chougikai/katsushin/kaigi-kiroku/gikai-eizo/r8-eizo/" target="_blank" rel="noopener">一般質問の映像を見る ↗</a>
+  </div>
+  <div class="section">
+    <strong>八丈町議会の公式情報</strong>
+    <p class="muted">議員の正式な紹介、議会の日程、議会だよりなどは、町の公式サイトで確認してください。</p>
+    <a class="btn" href="https://www.town.hachijo.tokyo.jp/chousei/chougikai/giin-shoukai/" target="_blank" rel="noopener">議員の紹介（公式） ↗</a>
+    <a class="btn light" href="https://www.town.hachijo.tokyo.jp/chousei/chougikai/" target="_blank" rel="noopener">八丈町議会（公式） ↗</a>
+  </div>
+  <p class="muted" style="margin-top:12px">SNSリンクは各アカウントへの外部リンクです。八丈町および八丈町議会が運営・公認するものではなく、個人による独立した取り組みです。</p>
+</section>
+
+<div class="notice">
+  <strong>📋 開発者・お問い合わせ</strong>
+  開発者：服部克彦<br>
+  住所：東京都八丈島八丈町三根2008-1<br>
+  事業所：八丈島アクアトリップダイビング<br>
+  代表者：服部克彦<br>
+  メール：<a href="mailto:pikochin56@gmail.com">pikochin56@gmail.com</a><br><br>
+  本アプリは試作・評価版であり、八丈町の公式アプリではありません。<br>
+  緊急時は、町などの公式防災情報・緊急通報をご利用ください。
+</div>
 </main>
 
 <nav class="bottom" aria-label="メインメニュー">
-  <button class="active" data-page="home" onclick="navigateToPage('home',this)">
-    <span>🏠</span>ホーム
-  </button>
-  <button data-page="news" onclick="navigateToPage('news',this)">
-    <span>📰</span>お知らせ
-  </button>
-  <button data-page="garbage" onclick="navigateToPage('garbage',this)">
-    <span>♻️</span>ごみ出し
-  </button>
-  <button data-page="council" onclick="navigateToPage('council',this)">
-    <span>👥</span>議員SNS
-  </button>
+  <button class="active" data-page="home" type="button"><span>🏠</span>ホーム</button>
+  <button data-page="news" type="button"><span>📰</span>お知らせ</button>
+  <button data-page="garbage" type="button"><span>♻️</span>ごみ出し</button>
+  <button data-page="council" type="button"><span>👥</span>議員紹介</button>
 </nav>
 
 <script>
-const pageScrollPositions = {
-  home: 0,
-  news: 0,
-  garbage: 0,
-  council: 0
+// ---- 画面の切り替え（すべてこの1ファイル内。別ファイルへの移動はしません）----
+const PAGES = ["home", "news", "garbage", "council"];
+function showPage(id) {
+  if (PAGES.indexOf(id) < 0) id = "home";
+  PAGES.forEach(p => document.getElementById(p).classList.toggle("active", p === id));
+  document.querySelectorAll(".bottom button").forEach(b => b.classList.toggle("active", b.dataset.page === id));
+  window.scrollTo(0, 0);
+}
+function go(id) {
+  if (location.hash.replace("#", "") !== id) history.pushState({page: id}, "", "#" + id);
+  showPage(id);
+}
+document.addEventListener("click", e => {
+  const nav = e.target.closest("[data-page]");
+  if (nav) { e.preventDefault(); go(nav.dataset.page); return; }
+  const link = e.target.closest("[data-go]");
+  if (link) { e.preventDefault(); go(link.dataset.go); return; }
+  const sc = e.target.closest("[data-scroll]");
+  if (sc) { e.preventDefault(); document.getElementById(sc.dataset.scroll).scrollIntoView(); }
+});
+window.addEventListener("popstate", () => showPage(location.hash.replace("#", "") || "home"));
+showPage(location.hash.replace("#", "") || "home");
+
+// ---- ごみ出し ----
+const SCH = {
+  mine:     {"日":[],"月":["金属ごみ"],"火":["燃やせるごみ","有害ごみ"],"水":["資源ごみ"],"木":["空きびん"],"金":["燃やせるごみ","有害ごみ"],"土":[]},
+  ogago:    {"日":[],"月":["燃やせるごみ","有害ごみ"],"火":["資源ごみ"],"水":[],"木":["燃やせるごみ","空きびん","有害ごみ"],"金":["金属ごみ"],"土":[]},
+  sakagami: {"日":[],"月":["燃やせるごみ","有害ごみ"],"火":[],"水":["資源ごみ"],"木":["燃やせるごみ","有害ごみ"],"金":["金属ごみ"],"土":[]}
 };
-
-let currentPageId = 'home';
-
-function showPage(id, button) {
-  // 現在のページのスクロール位置を保存
-  pageScrollPositions[currentPageId] =
-    window.scrollY || document.documentElement.scrollTop || 0;
-
-  // 表示ページを切り替え
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
+const DAYS = ["日","月","火","水","木","金","土"], AREAS = ["mine","ogago","sakagami"];
+const gArea = document.getElementById("gArea"), gResult = document.getElementById("gResult");
+let offset = 0;
+function renderGarbage() {
+  const b = new Date(), t = new Date(b.getFullYear(), b.getMonth(), b.getDate() + offset);
+  const day = DAYS[t.getDay()], label = offset === 0 ? "今日" : "明日", items = SCH[gArea.value][day];
+  document.getElementById("gDate").textContent = label + "：" + t.getFullYear() + "年" + (t.getMonth() + 1) + "月" + t.getDate() + "日（" + day + "曜日）";
+  gResult.className = "result" + (items.length ? "" : " none");
+  gResult.textContent = "";
+  const h = document.createElement("h3");
+  h.textContent = items.length ? label + "出せるごみ：" + items.length + "種類" : label + "は収集がありません";
+  gResult.appendChild(h);
+  (items.length ? items : ["ごみ出しはお休みです"]).forEach(x => {
+    const s = document.createElement("span"); s.className = "chip"; s.textContent = x; gResult.appendChild(s);
   });
-
-  const target = document.getElementById(id);
-  if (!target) return;
-  target.classList.add('active');
-
-  // 下段メニューの選択状態を更新
-  document.querySelectorAll('.bottom button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-
-  const activeButton = button ||
-    document.querySelector('.bottom button[data-page="' + id + '"]');
-
-  if (activeButton) activeButton.classList.add('active');
-
-  currentPageId = id;
-  const restoreY = pageScrollPositions[id] || 0;
-
-  requestAnimationFrame(() => {
-    window.scrollTo(0, restoreY);
-    requestAnimationFrame(() => window.scrollTo(0, restoreY));
+  const tb = document.getElementById("gWeek"); tb.textContent = "";
+  DAYS.forEach(d => {
+    const tr = document.createElement("tr");
+    const c0 = document.createElement("td"); c0.textContent = d + "曜日"; if (d === day) c0.className = "sel"; tr.appendChild(c0);
+    AREAS.forEach(a => {
+      const td = document.createElement("td");
+      td.textContent = SCH[a][d].length ? SCH[a][d].join("・") : "—";
+      if (d === day && a === gArea.value) td.className = "sel";
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
   });
 }
-
-// ページを切り替え、スマートフォンの戻る操作にも対応
-function navigateToPage(id, button) {
-  if (id === currentPageId) return;
-
-  history.pushState({ pageId: id }, '', '#' + id);
-  showPage(id, button);
+function setOffset(n) {
+  offset = n;
+  document.getElementById("gTab0").setAttribute("aria-pressed", String(n === 0));
+  document.getElementById("gTab1").setAttribute("aria-pressed", String(n === 1));
+  renderGarbage();
 }
+document.getElementById("gTab0").addEventListener("click", () => setOffset(0));
+document.getElementById("gTab1").addEventListener("click", () => setOffset(1));
+gArea.addEventListener("change", () => { try { localStorage.setItem("hachijo-gomi-area", gArea.value); } catch (e) {} renderGarbage(); });
+try { const sv = localStorage.getItem("hachijo-gomi-area"); if (sv && SCH[sv]) gArea.value = sv; } catch (e) {}
+const nw = new Date();
+if (nw.getMonth() === 11 || (nw.getMonth() === 0 && nw.getDate() <= 5)) document.getElementById("gYearEnd").hidden = false;
+renderGarbage();
 
-window.addEventListener('popstate', event => {
-  const id = event.state && event.state.pageId
-    ? event.state.pageId
-    : (location.hash.replace('#', '') || 'home');
-
-  showPage(document.getElementById(id) ? id : 'home');
-});
-
-// ブラウザ履歴を使って戻る操作を処理
-if (!history.state || !history.state.pageId) {
-  history.replaceState(
-    { pageId: 'home' },
-    '',
-    location.pathname + location.search
-  );
-}
-
-// 議員一覧
-const councilMembers = [
-  "岩﨑 由美",
-  "沖山 恵子",
-  "伊藤 しょう",
-  "浅沼 憲春",
-  "佐々木 丈",
-  "山下 則子",
-  "金川 孝幸",
-  "いせざき 唯",
-  "佐藤 誠",
-  "沖山 昇",
-  "浅沼 清孝",
-  "浅沼 碧海"
+// ---- 議員（五十音順。x にXのユーザー名を入れるとSNSボタンが出ます）----
+const MEMBERS = [
+  {n:"浅沼 碧海", x:"aomi_asa"}, {n:"浅沼 清孝"}, {n:"浅沼 憲春"},
+  {n:"いせざき 唯", x:"YuiIsezaki8jo"}, {n:"伊藤 しょう", x:"ito_man1223"}, {n:"岩﨑 由美", x:"yumi_iwasaki"},
+  {n:"沖山 恵子"}, {n:"沖山 昇"}, {n:"金川 孝幸"},
+  {n:"佐々木 丈", x:"greenblue8jo"}, {n:"佐藤 誠"}, {n:"山下 則子", x:"norikoba1014"}
 ];
-
-document.getElementById("councilList").innerHTML =
-  councilMembers.map((name, index) => `
-    <div class="member">
-      <strong>${index + 1}. ${name}</strong>
-      <div class="status">SNSリンク：確認中</div>
-    </div>
-  `).join("");
-
-// 地区選択表示
-document.getElementById("district").addEventListener("change", event => {
-  document.getElementById("districtLabel").textContent = event.tAarget.value;
+const VIDEO = "https://www.town.hachijo.tokyo.jp/chousei/chougikai/katsushin/kaigi-kiroku/gikai-eizo/";
+MEMBERS.forEach(m => {
+  const card = document.createElement("div"); card.className = "card";
+  const nm = document.createElement("div"); nm.className = "name"; nm.textContent = m.n + " 議員"; card.appendChild(nm);
+  const a = document.createElement("a"); a.className = "sns"; a.target = "_blank"; a.rel = "noopener";
+  a.href = m.x ? "https://x.com/" + m.x : VIDEO;
+  a.textContent = m.x ? "X を見る ↗" : "一般質問の映像 ↗";
+  a.setAttribute("aria-label", m.n + " 議員の" + (m.x ? "Xを見る" : "一般質問の映像（町公式）を見る"));
+  card.appendChild(a);
+  document.getElementById("cList").appendChild(card);
 });
 
-// 再表示時にスクロール位置と表示ページを復元
-window.addEventListener('pagehide', () => {
-  try {
-    sessionStorage.setItem('hachijoScrollY', String(window.scrollY || 0));
-    sessionStorage.setItem('hachijoPageId', currentPageId);
-  } catch (e) {
-    // sessionStorageが使えない環境では何もしない
-  }
-});
-
-window.addEventListener('pageshow', () => {
-  try {
-    const savedPage = sessionStorage.getItem('hachijoPageId');
-    const savedY = Number(sessionStorage.getItem('hachijoScrollY') || 0);
-
-    if (savedPage && document.getElementById(savedPage)) {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-
-      document.getElementById(savedPage).classList.add('active');
-      currentPageId = savedPage;
-
-      document.querySelectorAll('.bottom button').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.page === savedPage);
-      });
-
-      pageScrollPositions[savedPage] = savedY;
-      requestAnimationFrame(() => window.scrollTo(0, savedY));
-    }
-  } catch (e) {
-    // sessionStorageが使えない環境では何もしない
-  }
-});
-</script>
-
-
-<section id="hachijo-weather" style="
-  max-width: 460px;
-  margin: 28px auto;
-  padding: 20px;
-  border-radius: 18px;
-  background: #e0f2fe;
-  color: #12344a;
-  font-family: sans-serif;
-  text-align: center;
-">
-  <h2>🌤️ 八丈島の天気</h2>
-  <p id="weather-updated">天気情報を取得しています…</p>
-  <div id="weather-now" style="font-size: 20px; font-weight: bold;">
-    読み込み中…
-  </div>
-  <p id="weather-detail"></p>
-  <h3>📅 週間天気予報</h3>
-  <div id="weather-week">予報を取得しています…</div>
-  <p style="font-size:12px;">
-    天気データ：<a href="https://open-meteo.com/">Open-Meteo</a>
-  </p>
-</section>
-
-<script>
+// ---- 天気 ----
 (async function () {
-  const now = document.getElementById("weather-now");
-  const detail = document.getElementById("weather-detail");
-  const week = document.getElementById("weather-week");
-  const updated = document.getElementById("weather-updated");
-
-  const weatherText = {
-    0: "快晴 ☀️",
-    1: "おおむね晴れ 🌤️",
-    2: "晴れ時々くもり ⛅",
-    3: "くもり ☁️",
-    45: "霧 🌫️",
-    48: "霧 🌫️",
-    51: "弱い霧雨 🌦️",
-    53: "霧雨 🌦️",
-    55: "強い霧雨 🌧️",
-    61: "弱い雨 🌧️",
-    63: "雨 🌧️",
-    65: "強い雨 🌧️",
-    71: "弱い雪 ❄️",
-    73: "雪 ❄️",
-    75: "強い雪 ❄️",
-    80: "にわか雨 🌦️",
-    81: "雨 🌧️",
-    82: "激しいにわか雨 🌧️",
-    95: "雷雨 ⛈️",
-    96: "ひょうを伴う雷雨 ⛈️",
-    99: "激しい雷雨 ⛈️"
-  };
-
+  const now = document.getElementById("wNow"), detail = document.getElementById("wDetail");
+  const week = document.getElementById("wWeek"), updated = document.getElementById("wUpdated");
+  const text = {0:"快晴 ☀️",1:"おおむね晴れ 🌤️",2:"晴れ時々くもり ⛅",3:"くもり ☁️",45:"霧 🌫️",48:"霧 🌫️",51:"弱い霧雨 🌦️",53:"霧雨 🌦️",55:"強い霧雨 🌧️",61:"弱い雨 🌧️",63:"雨 🌧️",65:"強い雨 🌧️",71:"弱い雪 ❄️",73:"雪 ❄️",75:"強い雪 ❄️",80:"にわか雨 🌦️",81:"雨 🌧️",82:"激しいにわか雨 🌧️",95:"雷雨 ⛈️",96:"ひょうを伴う雷雨 ⛈️",99:"激しい雷雨 ⛈️"};
   try {
-    const url =
-      "https://api.open-meteo.com/v1/forecast" +
-      "?latitude=33.11&longitude=139.79" +
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=33.11&longitude=139.79" +
       "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m" +
       "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max" +
       "&timezone=Asia%2FTokyo&forecast_days=7";
-
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("天気データを取得できません");
-    const data = await response.json();
-    const c = data.current;
-    const d = data.daily;
-
-    now.textContent =
-      (weatherText[c.weather_code] || "天気情報") +
-      "　" + Math.round(c.temperature_2m) + "℃";
-
-    detail.textContent =
-      "体感 " + Math.round(c.apparent_temperature) + "℃" +
-      " ／ 湿度 " + c.relative_humidity_2m + "%" +
-      " ／ 降水量 " + c.precipitation + "mm" +
-      " ／ 風速 " + c.wind_speed_10m + "km/h";
-
-    updated.textContent =
-      "現在の気象データ：" +
-      c.time.replace("T", " ");
-
-    week.innerHTML = "";
-
+    const r = await fetch(url);
+    if (!r.ok) throw new Error("fetch failed");
+    const data = await r.json(), c = data.current, d = data.daily;
+    now.textContent = (text[c.weather_code] || "天気情報") + "　" + Math.round(c.temperature_2m) + "℃";
+    detail.textContent = "体感 " + Math.round(c.apparent_temperature) + "℃ ／ 湿度 " + c.relative_humidity_2m + "% ／ 降水量 " + c.precipitation + "mm ／ 風速 " + c.wind_speed_10m + "km/h";
+    updated.textContent = "現在の気象データ：" + c.time.replace("T", " ");
+    week.textContent = "";
     d.time.forEach((date, i) => {
-      const day = document.createElement("div");
-      day.style.cssText =
-        "padding:10px;margin:8px 0;background:white;border-radius:10px;text-align:left;";
-
-      const label = i === 0 ? "今日" :
-        new Date(date + "T12:00:00").toLocaleDateString(
-          "ja-JP", { month: "numeric", day: "numeric", weekday: "short" }
-        );
-
-      day.textContent =
-        label + "　" +
-        (weatherText[d.weather_code[i]] || "天気情報") +
-        "　" + Math.round(d.temperature_2m_min[i]) +
-        "〜" + Math.round(d.temperature_2m_max[i]) + "℃" +
-        "　降水確率 " +
-        (d.precipitation_probability_max[i] == null
-          ? "—"
-          : d.precipitation_probability_max[i] + "%");
-
-      week.appendChild(day);
+      const row = document.createElement("div"); row.className = "wday";
+      const label = i === 0 ? "今日" : new Date(date + "T12:00:00").toLocaleDateString("ja-JP", {month: "numeric", day: "numeric", weekday: "short"});
+      const p = d.precipitation_probability_max[i];
+      row.textContent = label + "　" + (text[d.weather_code[i]] || "天気情報") + "　" + Math.round(d.temperature_2m_min[i]) + "〜" + Math.round(d.temperature_2m_max[i]) + "℃　降水確率 " + (p == null ? "—" : p + "%");
+      week.appendChild(row);
     });
-  } catch (error) {
+  } catch (e) {
     now.textContent = "天気情報を取得できませんでした";
     detail.textContent = "通信を確認して、ページを再読み込みしてください。";
     week.textContent = "現在、予報を表示できません。";
